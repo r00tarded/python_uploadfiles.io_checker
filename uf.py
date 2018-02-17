@@ -44,6 +44,7 @@ def sub_worker(task, ip_port):
         proxies = {'http': prx}
         jar = cookielib.CookieJar()
         s = requests.Session()
+        s.proxies.update(proxies)
         url = "https://uploadfiles.io/login"
         r = s.get(url, cookies=jar,headers={'User-Agent': ua,'Accept':'*/*'})
         soup = BeautifulSoup(r.text, "lxml")
